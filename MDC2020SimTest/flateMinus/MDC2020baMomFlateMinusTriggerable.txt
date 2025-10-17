@@ -1,0 +1,11 @@
+
+Processing displayParticleMomentum.C++("MDC2020SimTestFilelistFlateMinusTriggerable.txt")...
+EventNtuple v06_07_00
+There are 2345 entries. Printing PDG, process code, number of hits, and rank for each.
+Calculation complete!
+Printing Results...
+| Min Start | Max Start | Min End | Max End | Momenta by Particle in MeV/c:      --> Average: Start | End 
+Electron: | 0.00711779 | 109.998 | 0 | 0 | --> Average: 55.4241 | 0
+Positron: | 3.40282e+38 | 0 | 3.40282e+38 | 0 | --> Average: -nan | -nan
+Muon: | 15.0966 | 109.931 | 5.88286 | 50.874 | --> Average: 41.2419 | 33.9744
+Proton: | 791.24 | 8888.89 | 783.947 | 8888.8 | --> Average: 8741.05 | 8621.03
