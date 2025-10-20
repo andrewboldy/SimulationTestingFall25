@@ -38,31 +38,39 @@ void plotElectronMomHist(const string &triggeredFilelist, const string &triggera
 {
   //Initilizing the histograms and the TCanvas
   TCanvas* c1 = new TCanvas("c1","c1");
-  TH1F* eMinusAllTriggeredStartMomHist = new TH1F("eMinusAllTriggeredStartMomHist","eMinus Start Momentum (Triggered)", 50, 0, 110);
+  TH1F* eMinusAllTriggeredStartMomHist = new TH1F("eMinusAllTriggeredStartMomHist","eMinus Start Momentum (Triggered)", 50, 10, 110);
   eMinusAllTriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusAllTriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusAllTriggerableStartMomHist = new TH1F("eMinusAllTriggerableStartMomHist", "eMinus Start Momentum (Triggerable)", 50, 0, 110);
+  eMinusAllTriggeredStartMomHist->SetStats(0);
+  TH1F* eMinusAllTriggerableStartMomHist = new TH1F("eMinusAllTriggerableStartMomHist", "eMinus Start Momentum (Triggerable)", 50, 10, 110);
   eMinusAllTriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusAllTriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusRank0TriggeredStartMomHist = new TH1F("eMinusRank0TriggeredStartMomHist", "Rank 0 eMinus Start Momentum (Triggered)", 50, 0, 110);
+  eMinusAllTriggerableStartMomHist->SetStats(0);
+  TH1F* eMinusRank0TriggeredStartMomHist = new TH1F("eMinusRank0TriggeredStartMomHist", "Rank 0 eMinus Start Momentum (Triggered)", 50, 10, 110);
   eMinusRank0TriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusRank0TriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusRank0TriggerableStartMomHist = new TH1F("eMinusRank0TriggerableStartMomHist", "Rank 0 eMinus Start Momentum (Triggerable)", 50, 0, 110);
+  eMinusRank0TriggeredStartMomHist->SetStats(0);
+  TH1F* eMinusRank0TriggerableStartMomHist = new TH1F("eMinusRank0TriggerableStartMomHist", "Rank 0 eMinus Start Momentum (Triggerable)", 50, 10, 110);
   eMinusRank0TriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusRank0TriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
+  eMinusRank0TriggerableStartMomHist->SetStats(0);
   
-  TH1F* eMinusAllTriggeredEndMomHist = new TH1F("eMinusAllTriggeredEndMomHist","eMinus End Momentum (Triggered)", 50, 0, 110);
+  TH1F* eMinusAllTriggeredEndMomHist = new TH1F("eMinusAllTriggeredEndMomHist","eMinus End Momentum (Triggered)", 10, -10, 10);
   eMinusAllTriggeredEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
   eMinusAllTriggeredEndMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusAllTriggerableEndMomHist = new TH1F("eMinusAllTriggerableEndMomHist", "eMinus End Momentum (Triggerable)", 50, 0, 110);
+  eMinusAllTriggeredEndMomHist->SetStats(0);
+  TH1F* eMinusAllTriggerableEndMomHist = new TH1F("eMinusAllTriggerableEndMomHist", "eMinus End Momentum (Triggerable)", 10, -10, 10);
   eMinusAllTriggerableEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
   eMinusAllTriggerableEndMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusRank0TriggeredEndMomHist = new TH1F("eMinusRank0TriggeredEndMomHist", "Rank 0 eMinus End Momentum (Triggered)", 50, 0, 110);
+  eMinusAllTriggerableEndMomHist->SetStats(0);
+  TH1F* eMinusRank0TriggeredEndMomHist = new TH1F("eMinusRank0TriggeredEndMomHist", "Rank 0 eMinus End Momentum (Triggered)", 10, -10, 10);
   eMinusRank0TriggeredEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
   eMinusRank0TriggeredEndMomHist->GetYaxis()->SetTitle("Counts");
-  TH1F* eMinusRank0TriggerableEndMomHist = new TH1F("eMinusRank0TriggerableEndMomHist", "Rank 0 eMinus End Momentum (Triggerable)", 50, 0, 110);
+  eMinusRank0TriggeredEndMomHist->SetStats(0);
+  TH1F* eMinusRank0TriggerableEndMomHist = new TH1F("eMinusRank0TriggerableEndMomHist", "Rank 0 eMinus End Momentum (Triggerable)", 10, -10, 10);
   eMinusRank0TriggerableEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
   eMinusRank0TriggerableEndMomHist->GetYaxis()->SetTitle("Counts");
+  eMinusRank0TriggerableEndMomHist->SetStats(0);
 
   //Work on the triggered file
   cout << "Beginning the analysis of the triggered file." << endl;
