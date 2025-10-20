@@ -302,10 +302,10 @@ TLegend* legendG = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
 legendG->SetTextSize(0.03);  // smaller, balanced text
 legendG->SetBorderSize(0);   // optional: removes border
 legendG->SetFillStyle(0);    // optional: transparent background
-legendG->AddEntry(eMinusAllTriggerableStartMomHist, "All", "l");
-legendG->AddEntry(eMinusRank0TriggerableStartMomHist, "Rank 0", "l");
+legendG->AddEntry(eMinusAllTriggerableEndMomHist, "All", "l");
+legendG->AddEntry(eMinusRank0TriggerableEndMomHist, "Rank 0", "l");
 legendG->Draw();
-c1->SaveAs("eMinusTriggerableAllAndRank0StartMomHist.pdf");
+c1->SaveAs("eMinusTriggerableAllAndRank0EndMomHist.pdf");
 c1->Clear();
 eMinusAllTriggeredEndMomHist->SetTitle("Triggered 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
 eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
