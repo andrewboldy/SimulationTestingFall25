@@ -1,0 +1,227 @@
+//----------------------------------------------------------------------------------
+
+//plotElectronMomHist(string filelist)
+//Written by Andrew Boldy
+//University of South Carolina
+//Fall 2025
+
+//----------------------------------------------------------------------------------
+
+//Plots the electron momentum for a given non-mixed filelist in a histogram.
+//Must be run using C++ so compile mode in order to rectify issues that are generated when using common_cuts.hh
+
+//----------------------------------------------------------------------------------
+
+//My Inclusions
+
+//Standard Inclusions
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <vector>
+
+//CERN ROOT Inclusions
+#include <TCanvas.h>
+#include <TH1F.h>
+#include <TLegend.h>
+
+//Mu2e Inclusions
+#include "EventNtuple/rooutil/inc/RooUtil.hh"
+#include "EventNtuple/rooutil/inc/common_cuts.hh"
+
+//Personal Inclusions (if any)
+
+//Namespace
+using namespace std;
+
+void plotElectronMomHist(const string &triggeredFilelist, const string &triggerableFilelist)
+{
+  //Initilizing the histograms and the TCanvas
+  TCanvas* c1 = new TCanvas("c1","c1");
+  TH1F* eMinusAllTriggeredStartMomHist = new TH1F("eMinusAllTriggeredStartMomHist","eMinus Start Momentum (Triggered)", 50, 0, 110);
+  eMinusAllTriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
+  eMinusAllTriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusAllTriggerableStartMomHist = new TH1F("eMinusAllTriggerableStartMomHist", "eMinus Start Momentum (Triggerable)", 50, 0, 110);
+  eMinusAllTriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
+  eMinusAllTriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusRank0TriggeredStartMomHist = new TH1F("eMinusRank0TriggeredStartMomHist", "Rank 0 eMinus Start Momentum (Triggered)", 50, 0, 110);
+  eMinusRank0TriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
+  eMinusRank0TriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusRank0TriggerableStartMomHist = new TH1F("eMinusRank0TriggerableStartMomHist", "Rank 0 eMinus Start Momentum (Triggerable)", 50, 0, 110);
+  eMinusRank0TriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
+  eMinusRank0TriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
+  
+  TH1F* eMinusAllTriggeredEndMomHist = new TH1F("eMinusAllTriggeredEndMomHist","eMinus End Momentum (Triggered)", 50, 0, 110);
+  eMinusAllTriggeredEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
+  eMinusAllTriggeredEndMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusAllTriggerableEndMomHist = new TH1F("eMinusAllTriggerableEndMomHist", "eMinus End Momentum (Triggerable)", 50, 0, 110);
+  eMinusAllTriggerableEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
+  eMinusAllTriggerableEndMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusRank0TriggeredEndMomHist = new TH1F("eMinusRank0TriggeredEndMomHist", "Rank 0 eMinus End Momentum (Triggered)", 50, 0, 110);
+  eMinusRank0TriggeredEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
+  eMinusRank0TriggeredEndMomHist->GetYaxis()->SetTitle("Counts");
+  TH1F* eMinusRank0TriggerableEndMomHist = new TH1F("eMinusRank0TriggerableEndMomHist", "Rank 0 eMinus End Momentum (Triggerable)", 50, 0, 110);
+  eMinusRank0TriggerableEndMomHist->GetXaxis()->SetTitle("End Momentum (MeV/c)");
+  eMinusRank0TriggerableEndMomHist->GetYaxis()->SetTitle("Counts");
+
+  //Work on the triggered file
+  cout << "Beginning the analysis of the triggered file." << endl;
+
+  RooUtil triggeredUtil(triggeredFilelist);
+  int numTriggeredEvents = triggeredUtil.GetNEvents();
+  cout << "This triggered filelist has " << numTriggeredEvents << " events." << endl;
+
+  ifstream listOfFilesA(triggeredFilelist);
+  int triggeredFileCount = 0;
+  string lineA;
+  while (getline(listOfFilesA,lineA))
+  {
+    if (!lineA.empty())
+    {
+      triggeredFileCount++;
+    }
+  }
+  cout << "The triggered filelist has: " << triggeredFileCount << " files stored in it." << endl;
+
+  for (int i_event = 0; i_event < numTriggeredEvents; i_event++)
+  {
+    auto& event = triggeredUtil.GetEvent(i_event);
+    auto e_minus_tracks = event.GetTracks(is_e_minus);
+    for (auto& track : e_minus_tracks)
+    {
+        if (track.trkmcsim != nullptr)
+        {
+          for (const auto& mctrack : *(track.trkmcsim))
+          {
+            if (mctrack.pdg == 11)
+            {
+              eMinusAllTriggeredStartMomHist->Fill(mctrack.mom.R());
+              eMinusAllTriggeredEndMomHist->Fill(mctrack.endmom.R());
+              if (mctrack.rank == 0)
+              {
+                eMinusRank0TriggeredStartMomHist->Fill(mctrack.mom.R());
+                eMinusRank0TriggeredEndMomHist->Fill(mctrack.endmom.R());
+              }
+            }
+          }
+        }
+     }
+  }
+
+  cout << "Beginning the analysis of the triggerable files." << endl;
+  ifstream listOfFilesB(triggerableFilelist);
+  int triggerableFileCount = 0;
+  string lineB;
+  while (getline(listOfFilesB,lineB))
+  {
+    if (!lineB.empty())
+    {
+      triggerableFileCount++;
+    }
+  }
+  cout << "The triggerable filelist has: " << triggerableFileCount << " files stored in it." << endl;
+
+  RooUtil triggerableUtil(triggerableFilelist);
+  int numTriggerableEvents = triggerableUtil.GetNEvents();
+  cout << "This triggerable filelist has " << numTriggerableEvents << " events." << endl;
+  
+  for (int j_event = 0; j_event < numTriggerableEvents; j_event++)
+  {
+    auto& event = triggerableUtil.GetEvent(j_event);
+    auto e_minus_tracks = event.GetTracks(is_e_minus);
+    for (auto& track : e_minus_tracks)
+    {
+        if (track.trkmcsim != nullptr)
+        {
+          for (const auto& mctrack : *(track.trkmcsim))
+          {
+            if (mctrack.pdg == 11)
+            {
+              eMinusAllTriggerableStartMomHist->Fill(mctrack.mom.R());
+              eMinusAllTriggerableEndMomHist->Fill(mctrack.endmom.R());
+              if (mctrack.rank == 0)
+              {
+                eMinusRank0TriggerableStartMomHist->Fill(mctrack.mom.R());
+                eMinusRank0TriggerableEndMomHist->Fill(mctrack.endmom.R());
+              }
+            }
+          }
+        }
+     }
+  }
+cout << "Creating and saving 'all' histograms." << endl;
+eMinusAllTriggeredStartMomHist->Draw();
+c1->SaveAs("eMinusAllTriggeredStartMomHist.pdf");
+c1->Clear();
+eMinusAllTriggerableStartMomHist->Draw();
+c1->SaveAs("eMinusAllTriggerableStartMomHist.pdf");
+c1->Clear();
+eMinusAllTriggeredEndMomHist->Draw();
+c1->SaveAs("eMinusAllTriggeredEndMomHist.pdf");
+c1->Clear();
+eMinusAllTriggerableEndMomHist->Draw();
+c1->SaveAs("eMinusAllTriggerableEndMomHist.pdf");
+c1->Clear();
+
+cout << "Creating and saving 'rank 0' histograms." << endl;
+eMinusRank0TriggeredStartMomHist->Draw();
+c1->SaveAs("eMinusRank0TriggeredStartMomHist.pdf");
+c1->Clear();
+eMinusRank0TriggerableStartMomHist->Draw();
+c1->SaveAs("eMinusRank0TriggerableStartMomHist.pdf");
+c1->Clear();
+eMinusRank0TriggeredEndMomHist->Draw();
+c1->SaveAs("eMinusRank0TriggeredEndMomHist.pdf");
+c1->Clear();
+eMinusRank0TriggerableEndMomHist->Draw();
+c1->SaveAs("eMinusRank0TriggerableEndMomHist.pdf");
+c1->Clear();
+
+cout << "Creating and saving combined triggered and triggerable histograms for 'all' eMinus." << endl;
+eMinusAllTriggeredStartMomHist->SetTitle("All eMinus Start Momentum Comparison (MeV/c)");
+eMinusAllTriggeredStartMomHist->SetLineColor(kBlue);
+eMinusAllTriggeredStartMomHist->Draw();
+eMinusAllTriggerableStartMomHist->SetLineColor(kRed);
+eMinusAllTriggerableStartMomHist->Draw("SAME");
+TLegend* legendA = new TLegend(0.6, 0.7, 0.88, 0.88);
+legendA->AddEntry(eMinusAllTriggeredStartMomHist, "Triggered", "l");
+legendA->AddEntry(eMinusAllTriggerableStartMomHist,"Triggerable","l");
+legendA->Draw();
+c1->SaveAs("eMinusAllTriggeredAndTriggerableStartMomHist.pdf");
+c1->Clear();
+eMinusAllTriggeredEndMomHist->SetTitle("All eMinus End Momentum Comparison (MeV/c)");
+eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
+eMinusAllTriggeredEndMomHist->Draw();
+eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
+eMinusAllTriggerableEndMomHist->Draw("SAME");
+TLegend* legendB = new TLegend(0.6, 0.7, 0.88, 0.88);
+legendB->AddEntry(eMinusAllTriggeredEndMomHist, "Triggered", "l");
+legendB->AddEntry(eMinusAllTriggerableEndMomHist,"Triggerable","l");
+legendB->Draw();
+c1->SaveAs("eMinusAllTriggeredAndTriggerableEndMomHist.pdf");
+c1->Clear();
+
+cout << "Creating and saving combined triggered and triggerable histograms for 'rank 0' eMinus." << endl;
+eMinusRank0TriggeredStartMomHist->SetTitle("Rank 0 eMinus Start Momentum Comparison (MeV/c)");
+eMinusRank0TriggeredStartMomHist->SetLineColor(kBlue);
+eMinusRank0TriggeredStartMomHist->Draw();
+eMinusRank0TriggerableStartMomHist->SetLineColor(kRed);
+eMinusRank0TriggerableStartMomHist->Draw("SAME");
+TLegend* legendC = new TLegend(0.6, 0.7, 0.88, 0.88);
+legendC->AddEntry(eMinusRank0TriggeredStartMomHist, "Triggered", "l");
+legendC->AddEntry(eMinusRank0TriggerableStartMomHist,"Triggerable","l");
+legendC->Draw();
+c1->SaveAs("eMinusRank0TriggeredAndTriggerableStartMomHist.pdf");
+c1->Clear();
+eMinusRank0TriggeredEndMomHist->SetTitle("Rank 0 eMinus End Momentum Comparison (MeV/c)");
+eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
+eMinusRank0TriggeredEndMomHist->Draw();
+eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
+eMinusRank0TriggerableEndMomHist->Draw("SAME");
+TLegend* legendD = new TLegend(0.6, 0.7, 0.88, 0.88);
+legendD->AddEntry(eMinusRank0TriggeredEndMomHist, "Triggered", "l");
+legendD->AddEntry(eMinusRank0TriggerableEndMomHist,"Triggerable","l");
+legendD->Draw();
+c1->SaveAs("eMinusRank0TriggeredAndTriggerableEndMomHist.pdf");
+c1->Clear();
+}
