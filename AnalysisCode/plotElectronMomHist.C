@@ -189,8 +189,8 @@ cout << "Creating and saving combined triggered and triggerable histograms for '
 eMinusAllTriggeredStartMomHist->SetTitle("All eMinus Start Momentum Comparison (MeV/c)");
 eMinusAllTriggeredStartMomHist->SetLineColor(kBlue);
 eMinusAllTriggerableStartMomHist->SetLineColor(kRed);
-eMinusAllTriggerableStartMomHist->Draw();
-eMinusAllTriggeredStartMomHist->Draw("SAME");
+eMinusAllTriggerableStartMomHist->Draw("HIST");
+eMinusAllTriggeredStartMomHist->Draw("HIST SAME");
 TLegend* legendA = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
 legendA->SetTextSize(0.03);  // smaller text
 legendA->SetBorderSize(0);   // optional: remove border
@@ -203,9 +203,9 @@ c1->Clear();
 eMinusAllTriggeredEndMomHist->SetTitle("All eMinus End Momentum Comparison (MeV/c)");
 eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
 eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
-eMinusAllTriggerableEndMomHist->Draw();
-eMinusAllTriggeredEndMomHist->Draw("SAME");
-TLegend* legendB = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
+eMinusAllTriggerableEndMomHist->Draw("HIST");
+eMinusAllTriggeredEndMomHist->Draw("HIST SAME");
+TLegend* legendB = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
 legendB->SetTextSize(0.03); // smaller text
 legendB->SetBorderSize(0);  // optional: remove border
 legendB->SetFillStyle(0);   // optional: transparent background
@@ -219,8 +219,8 @@ cout << "Creating and saving combined triggered and triggerable histograms for '
 eMinusRank0TriggeredStartMomHist->SetTitle("Rank 0 eMinus Start Momentum Comparison (MeV/c)");
 eMinusRank0TriggeredStartMomHist->SetLineColor(kBlue);
 eMinusRank0TriggerableStartMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableStartMomHist->Draw();
-eMinusRank0TriggeredStartMomHist->Draw("SAME");
+eMinusRank0TriggerableStartMomHist->Draw("HIST");
+eMinusRank0TriggeredStartMomHist->Draw("HIST SAME");
 TLegend* legendC = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
 legendC->SetTextSize(0.03);  // smaller, balanced text
 legendC->SetBorderSize(0);   // optional: removes border
@@ -233,9 +233,9 @@ c1->Clear();
 eMinusRank0TriggeredEndMomHist->SetTitle("Rank 0 eMinus End Momentum Comparison (MeV/c)");
 eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
 eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableEndMomHist->Draw();
-eMinusRank0TriggeredEndMomHist->Draw("SAME");
-TLegend* legendD = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
+eMinusRank0TriggerableEndMomHist->Draw("HIST");
+eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
+TLegend* legendD = new TLegend(0.6, 0.7, 0.88, 0.88); // moved left
 legendD->SetTextSize(0.03);  // smaller text
 legendD->SetBorderSize(0);   // remove border (optional)
 legendD->SetFillStyle(0);    // transparent background (optional)
@@ -244,4 +244,23 @@ legendD->AddEntry(eMinusRank0TriggerableEndMomHist, "Triggerable", "l");
 legendD->Draw();
 c1->SaveAs("eMinusRank0TriggeredAndTriggerableEndMomHist.pdf");
 c1->Clear();
+
+// Print which filelists were passed in
+cout << "Triggered filelist path: " << triggeredFilelist << endl;
+cout << "Triggerable filelist path: " << triggerableFilelist << endl;
+
+// Print counts returned by RooUtil
+cout << "RooUtil reported triggered events: " << numTriggeredEvents << endl;
+cout << "RooUtil reported triggerable events: " << numTriggerableEvents << endl;
+
+// Print file counts you computed
+cout << "triggeredFileCount = " << triggeredFileCount << ", triggerableFileCount = " << triggerableFileCount << endl;
+
+// Print histogram bookkeeping
+cout << "Entries: eMinusAllTriggeredStartMomHist = " << eMinusAllTriggeredStartMomHist->GetEntries()
+     << ", eMinusAllTriggerableStartMomHist = " << eMinusAllTriggerableStartMomHist->GetEntries() << endl;
+
+cout << "Integral: eMinusAllTriggeredStartMomHist = " << eMinusAllTriggeredStartMomHist->Integral()
+     << ", eMinusAllTriggerableStartMomHist = " << eMinusAllTriggerableStartMomHist->Integral() << endl;
+
 }
