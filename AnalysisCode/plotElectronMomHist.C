@@ -191,9 +191,12 @@ eMinusAllTriggeredStartMomHist->SetLineColor(kBlue);
 eMinusAllTriggeredStartMomHist->Draw();
 eMinusAllTriggerableStartMomHist->SetLineColor(kRed);
 eMinusAllTriggerableStartMomHist->Draw("SAME");
-TLegend* legendA = new TLegend(0.6, 0.7, 0.88, 0.88);
+TLegend* legendA = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
+legendA->SetTextSize(0.03);  // smaller text
+legendA->SetBorderSize(0);   // optional: remove border
+legendA->SetFillStyle(0);    // optional: transparent background
 legendA->AddEntry(eMinusAllTriggeredStartMomHist, "Triggered", "l");
-legendA->AddEntry(eMinusAllTriggerableStartMomHist,"Triggerable","l");
+legendA->AddEntry(eMinusAllTriggerableStartMomHist, "Triggerable", "l");
 legendA->Draw();
 c1->SaveAs("eMinusAllTriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
@@ -202,9 +205,12 @@ eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
 eMinusAllTriggeredEndMomHist->Draw();
 eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
 eMinusAllTriggerableEndMomHist->Draw("SAME");
-TLegend* legendB = new TLegend(0.6, 0.7, 0.88, 0.88);
+TLegend* legendB = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
+legendB->SetTextSize(0.03); // smaller text
+legendB->SetBorderSize(0);  // optional: remove border
+legendB->SetFillStyle(0);   // optional: transparent background
 legendB->AddEntry(eMinusAllTriggeredEndMomHist, "Triggered", "l");
-legendB->AddEntry(eMinusAllTriggerableEndMomHist,"Triggerable","l");
+legendB->AddEntry(eMinusAllTriggerableEndMomHist, "Triggerable", "l");
 legendB->Draw();
 c1->SaveAs("eMinusAllTriggeredAndTriggerableEndMomHist.pdf");
 c1->Clear();
@@ -215,9 +221,12 @@ eMinusRank0TriggeredStartMomHist->SetLineColor(kBlue);
 eMinusRank0TriggeredStartMomHist->Draw();
 eMinusRank0TriggerableStartMomHist->SetLineColor(kRed);
 eMinusRank0TriggerableStartMomHist->Draw("SAME");
-TLegend* legendC = new TLegend(0.6, 0.7, 0.88, 0.88);
+TLegend* legendC = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
+legendC->SetTextSize(0.03);  // smaller, balanced text
+legendC->SetBorderSize(0);   // optional: removes border
+legendC->SetFillStyle(0);    // optional: transparent background
 legendC->AddEntry(eMinusRank0TriggeredStartMomHist, "Triggered", "l");
-legendC->AddEntry(eMinusRank0TriggerableStartMomHist,"Triggerable","l");
+legendC->AddEntry(eMinusRank0TriggerableStartMomHist, "Triggerable", "l");
 legendC->Draw();
 c1->SaveAs("eMinusRank0TriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
@@ -226,9 +235,12 @@ eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
 eMinusRank0TriggeredEndMomHist->Draw();
 eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
 eMinusRank0TriggerableEndMomHist->Draw("SAME");
-TLegend* legendD = new TLegend(0.6, 0.7, 0.88, 0.88);
+TLegend* legendD = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
+legendD->SetTextSize(0.03);  // smaller text
+legendD->SetBorderSize(0);   // remove border (optional)
+legendD->SetFillStyle(0);    // transparent background (optional)
 legendD->AddEntry(eMinusRank0TriggeredEndMomHist, "Triggered", "l");
-legendD->AddEntry(eMinusRank0TriggerableEndMomHist,"Triggerable","l");
+legendD->AddEntry(eMinusRank0TriggerableEndMomHist, "Triggerable", "l");
 legendD->Draw();
 c1->SaveAs("eMinusRank0TriggeredAndTriggerableEndMomHist.pdf");
 c1->Clear();
