@@ -188,9 +188,9 @@ c1->Clear();
 cout << "Creating and saving combined triggered and triggerable histograms for 'all' eMinus." << endl;
 eMinusAllTriggeredStartMomHist->SetTitle("All eMinus Start Momentum Comparison (MeV/c)");
 eMinusAllTriggeredStartMomHist->SetLineColor(kBlue);
-eMinusAllTriggeredStartMomHist->Draw();
 eMinusAllTriggerableStartMomHist->SetLineColor(kRed);
-eMinusAllTriggerableStartMomHist->Draw("SAME");
+eMinusAllTriggerableStartMomHist->Draw();
+eMinusAllTriggeredStartMomHist->Draw("SAME");
 TLegend* legendA = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
 legendA->SetTextSize(0.03);  // smaller text
 legendA->SetBorderSize(0);   // optional: remove border
@@ -202,9 +202,9 @@ c1->SaveAs("eMinusAllTriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
 eMinusAllTriggeredEndMomHist->SetTitle("All eMinus End Momentum Comparison (MeV/c)");
 eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
-eMinusAllTriggeredEndMomHist->Draw();
 eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
-eMinusAllTriggerableEndMomHist->Draw("SAME");
+eMinusAllTriggerableEndMomHist->Draw();
+eMinusAllTriggeredEndMomHist->Draw("SAME");
 TLegend* legendB = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
 legendB->SetTextSize(0.03); // smaller text
 legendB->SetBorderSize(0);  // optional: remove border
@@ -218,9 +218,9 @@ c1->Clear();
 cout << "Creating and saving combined triggered and triggerable histograms for 'rank 0' eMinus." << endl;
 eMinusRank0TriggeredStartMomHist->SetTitle("Rank 0 eMinus Start Momentum Comparison (MeV/c)");
 eMinusRank0TriggeredStartMomHist->SetLineColor(kBlue);
-eMinusRank0TriggeredStartMomHist->Draw();
 eMinusRank0TriggerableStartMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableStartMomHist->Draw("SAME");
+eMinusRank0TriggerableStartMomHist->Draw();
+eMinusRank0TriggeredStartMomHist->Draw("SAME");
 TLegend* legendC = new TLegend(0.45, 0.7, 0.73, 0.88); // shifted left
 legendC->SetTextSize(0.03);  // smaller, balanced text
 legendC->SetBorderSize(0);   // optional: removes border
@@ -232,9 +232,9 @@ c1->SaveAs("eMinusRank0TriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
 eMinusRank0TriggeredEndMomHist->SetTitle("Rank 0 eMinus End Momentum Comparison (MeV/c)");
 eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
-eMinusRank0TriggeredEndMomHist->Draw();
 eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableEndMomHist->Draw("SAME");
+eMinusRank0TriggerableEndMomHist->Draw();
+eMinusRank0TriggeredEndMomHist->Draw("SAME");
 TLegend* legendD = new TLegend(0.45, 0.7, 0.73, 0.88); // moved left
 legendD->SetTextSize(0.03);  // smaller text
 legendD->SetBorderSize(0);   // remove border (optional)
