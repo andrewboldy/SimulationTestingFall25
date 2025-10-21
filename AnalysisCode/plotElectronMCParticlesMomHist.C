@@ -39,19 +39,19 @@ void plotElectronMCParticlesMomHist(const string &triggeredFilelist, const strin
 {
   //Initilizing the histograms and the TCanvas
   TCanvas* c1 = new TCanvas("c1","c1");
-  TH1F* eMinusAllTriggeredStartMomHist = new TH1F("eMinusAllTriggeredStartMomHist","eMinus Start Momentum (Triggered)", 50, 10, 110);
+  TH1F* eMinusAllTriggeredStartMomHist = new TH1F("eMinusAllTriggeredStartMomHist","eMinus Start Momentum (Triggered)", 50, 10, 130);
   eMinusAllTriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusAllTriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
   eMinusAllTriggeredStartMomHist->SetStats(0);
-  TH1F* eMinusAllTriggerableStartMomHist = new TH1F("eMinusAllTriggerableStartMomHist", "eMinus Start Momentum (Triggerable)", 50, 10, 110);
+  TH1F* eMinusAllTriggerableStartMomHist = new TH1F("eMinusAllTriggerableStartMomHist", "eMinus Start Momentum (Triggerable)", 50, 10, 130);
   eMinusAllTriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusAllTriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
   eMinusAllTriggerableStartMomHist->SetStats(0);
-  TH1F* eMinusRank0TriggeredStartMomHist = new TH1F("eMinusRank0TriggeredStartMomHist", "Rank 0 eMinus Start Momentum (Triggered)", 50, 10, 110);
+  TH1F* eMinusRank0TriggeredStartMomHist = new TH1F("eMinusRank0TriggeredStartMomHist", "Rank 0 eMinus Start Momentum (Triggered)", 50, 10, 130);
   eMinusRank0TriggeredStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusRank0TriggeredStartMomHist->GetYaxis()->SetTitle("Counts");
   eMinusRank0TriggeredStartMomHist->SetStats(0);
-  TH1F* eMinusRank0TriggerableStartMomHist = new TH1F("eMinusRank0TriggerableStartMomHist", "Rank 0 eMinus Start Momentum (Triggerable)", 50, 10, 110);
+  TH1F* eMinusRank0TriggerableStartMomHist = new TH1F("eMinusRank0TriggerableStartMomHist", "Rank 0 eMinus Start Momentum (Triggerable)", 50, 10, 130);
   eMinusRank0TriggerableStartMomHist->GetXaxis()->SetTitle("Start Momentum (MeV/c)");
   eMinusRank0TriggerableStartMomHist->GetYaxis()->SetTitle("Counts");
   eMinusRank0TriggerableStartMomHist->SetStats(0);
