@@ -277,7 +277,7 @@ legendE->SetFillStyle(0);    // optional: transparent background
 legendE->AddEntry(eMinusAllTriggerableStartMomHist, "All", "l");
 legendE->AddEntry(eMinusRank0TriggerableStartMomHist, "Rank 0", "l");
 legendE->Draw();
-gPad->SetLogy();
+//gPad->SetLogy();
 c1->SaveAs("eMinusTriggerableAllAndRank0StartMomHist.pdf");
 c1->Clear();
 eMinusAllTriggeredStartMomHist->SetTitle("Triggered 'all' and 'rank 0' eMinus Start Momentum Comparison (MeV/c)");
@@ -292,7 +292,7 @@ legendF->SetFillStyle(0);    // optional: transparent background
 legendF->AddEntry(eMinusAllTriggeredStartMomHist, "All", "l");
 legendF->AddEntry(eMinusRank0TriggeredStartMomHist, "Rank 0", "l");
 legendF->Draw();
-gPad->SetLogy();
+//gPad->SetLogy();
 c1->SaveAs("eMinusTriggeredAllAndRank0StartMomHist.pdf");
 c1->Clear();
 eMinusAllTriggerableEndMomHist->SetTitle("Triggerable 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
