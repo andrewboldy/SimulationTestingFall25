@@ -103,12 +103,12 @@ void plotElectronMCParticlesMomHist(const string &triggeredFilelist, const strin
       {
         if (particle.mcsim->pdg==11)
         {
-          eMinusAllTriggerableStartMomHist->Fill(particle.mcsim->mom.R());
-          eMinusAllTriggerableEndMomHist->Fill(particle.mcsim->endmom.R());
+          eMinusAllTriggeredStartMomHist->Fill(particle.mcsim->mom.R());
+          eMinusAllTriggeredEndMomHist->Fill(particle.mcsim->endmom.R());
           if (particle.mcsim->rank == 0)
           {
-            eMinusRank0TriggerableStartMomHist->Fill(particle.mcsim->mom.R());
-            eMinusRank0TriggerableEndMomHist->Fill(particle.mcsim->endmom.R());
+            eMinusRank0TriggeredStartMomHist->Fill(particle.mcsim->mom.R());
+            eMinusRank0TriggeredEndMomHist->Fill(particle.mcsim->endmom.R());
           }
         }
       }
