@@ -45,8 +45,8 @@ void mcsimvtrkmcsimMomHists(const string &filelist)
 
   //Open up the file and check the number of entries:
   RooUtil util(filelist);
-  //int numEvents = util.GetNEvents();
-  int numEvents = 10;
+  int numEvents = util.GetNEvents();
+  //int numEvents = 10;
   cout << "The filelist: " << filelist << endl;
   cout << "Number of events in filelist: " << numEvents << endl;
 
