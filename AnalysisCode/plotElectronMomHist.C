@@ -183,12 +183,12 @@ c1->Clear();
 eMinusAllTriggerableStartMomHist->Draw();
 c1->SaveAs("eMinusAllTriggerableStartMomHist.pdf");
 c1->Clear();
-eMinusAllTriggeredEndMomHist->Draw();
-c1->SaveAs("eMinusAllTriggeredEndMomHist.pdf");
-c1->Clear();
-eMinusAllTriggerableEndMomHist->Draw();
-c1->SaveAs("eMinusAllTriggerableEndMomHist.pdf");
-c1->Clear();
+//eMinusAllTriggeredEndMomHist->Draw();
+//c1->SaveAs("eMinusAllTriggeredEndMomHist.pdf");
+//c1->Clear();
+//eMinusAllTriggerableEndMomHist->Draw();
+//c1->SaveAs("eMinusAllTriggerableEndMomHist.pdf");
+//c1->Clear();
 
 cout << "Creating and saving 'rank 0' histograms." << endl;
 eMinusRank0TriggeredStartMomHist->Draw();
@@ -197,12 +197,12 @@ c1->Clear();
 eMinusRank0TriggerableStartMomHist->Draw();
 c1->SaveAs("eMinusRank0TriggerableStartMomHist.pdf");
 c1->Clear();
-eMinusRank0TriggeredEndMomHist->Draw();
-c1->SaveAs("eMinusRank0TriggeredEndMomHist.pdf");
-c1->Clear();
-eMinusRank0TriggerableEndMomHist->Draw();
-c1->SaveAs("eMinusRank0TriggerableEndMomHist.pdf");
-c1->Clear();
+//eMinusRank0TriggeredEndMomHist->Draw();
+//c1->SaveAs("eMinusRank0TriggeredEndMomHist.pdf");
+//c1->Clear();
+//eMinusRank0TriggerableEndMomHist->Draw();
+//c1->SaveAs("eMinusRank0TriggerableEndMomHist.pdf");
+//c1->Clear();
 
 cout << "Creating and saving combined triggered and triggerable histograms for 'all' eMinus." << endl;
 eMinusAllTriggerableStartMomHist->SetTitle("All eMinus Start Momentum Comparison (MeV/c)");
@@ -219,20 +219,20 @@ legendA->AddEntry(eMinusAllTriggerableStartMomHist, "Triggerable", "l");
 legendA->Draw();
 c1->SaveAs("eMinusAllTriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
-eMinusAllTriggerableEndMomHist->SetTitle("All eMinus End Momentum Comparison (MeV/c)");
-eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
-eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
-eMinusAllTriggerableEndMomHist->Draw("HIST");
-eMinusAllTriggeredEndMomHist->Draw("HIST SAME");
-TLegend* legendB = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
-legendB->SetTextSize(0.03); // smaller text
-legendB->SetBorderSize(0);  // optional: remove border
-legendB->SetFillStyle(0);   // optional: transparent background
-legendB->AddEntry(eMinusAllTriggeredEndMomHist, "Triggered", "l");
-legendB->AddEntry(eMinusAllTriggerableEndMomHist, "Triggerable", "l");
-legendB->Draw();
-c1->SaveAs("eMinusAllTriggeredAndTriggerableEndMomHist.pdf");
-c1->Clear();
+//eMinusAllTriggerableEndMomHist->SetTitle("All eMinus End Momentum Comparison (MeV/c)");
+//eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
+//eMinusAllTriggerableEndMomHist->SetLineColor(kRed);
+//eMinusAllTriggerableEndMomHist->Draw("HIST");
+//eMinusAllTriggeredEndMomHist->Draw("HIST SAME");
+//TLegend* legendB = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
+//legendB->SetTextSize(0.03); // smaller text
+//legendB->SetBorderSize(0);  // optional: remove border
+//legendB->SetFillStyle(0);   // optional: transparent background
+//legendB->AddEntry(eMinusAllTriggeredEndMomHist, "Triggered", "l");
+//legendB->AddEntry(eMinusAllTriggerableEndMomHist, "Triggerable", "l");
+//legendB->Draw();
+//c1->SaveAs("eMinusAllTriggeredAndTriggerableEndMomHist.pdf");
+//c1->Clear();
 
 cout << "Creating and saving combined triggered and triggerable histograms for 'rank 0' eMinus." << endl;
 eMinusRank0TriggerableStartMomHist->SetTitle("Rank 0 eMinus Start Momentum Comparison (MeV/c)");
@@ -249,20 +249,20 @@ legendC->AddEntry(eMinusRank0TriggerableStartMomHist, "Triggerable", "l");
 legendC->Draw();
 c1->SaveAs("eMinusRank0TriggeredAndTriggerableStartMomHist.pdf");
 c1->Clear();
-eMinusRank0TriggerableEndMomHist->SetTitle("Rank 0 eMinus End Momentum Comparison (MeV/c)");
-eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
-eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableEndMomHist->Draw("HIST");
-eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
-TLegend* legendD = new TLegend(0.6, 0.7, 0.88, 0.88); // moved left
-legendD->SetTextSize(0.03);  // smaller text
-legendD->SetBorderSize(0);   // remove border (optional)
-legendD->SetFillStyle(0);    // transparent background (optional)
-legendD->AddEntry(eMinusRank0TriggeredEndMomHist, "Triggered", "l");
-legendD->AddEntry(eMinusRank0TriggerableEndMomHist, "Triggerable", "l");
-legendD->Draw();
-c1->SaveAs("eMinusRank0TriggeredAndTriggerableEndMomHist.pdf");
-c1->Clear();
+//eMinusRank0TriggerableEndMomHist->SetTitle("Rank 0 eMinus End Momentum Comparison (MeV/c)");
+//eMinusRank0TriggeredEndMomHist->SetLineColor(kBlue);
+//eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
+//eMinusRank0TriggerableEndMomHist->Draw("HIST");
+//eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
+//TLegend* legendD = new TLegend(0.6, 0.7, 0.88, 0.88); // moved left
+//legendD->SetTextSize(0.03);  // smaller text
+//legendD->SetBorderSize(0);   // remove border (optional)
+//legendD->SetFillStyle(0);    // transparent background (optional)
+//legendD->AddEntry(eMinusRank0TriggeredEndMomHist, "Triggered", "l");
+//legendD->AddEntry(eMinusRank0TriggerableEndMomHist, "Triggerable", "l");
+//legendD->Draw();
+//c1->SaveAs("eMinusRank0TriggeredAndTriggerableEndMomHist.pdf");
+//c1->Clear();
 
 cout << "Creating and saving the combined triggered histograms for 'all' and 'rank 0' histograms for eMinus." << endl;
 eMinusAllTriggerableStartMomHist->SetTitle("Triggerable 'all' and 'rank 0' eMinus Start Momentum Comparison (MeV/c)");
@@ -295,34 +295,34 @@ legendF->Draw();
 //gPad->SetLogy();
 c1->SaveAs("eMinusTriggeredAllAndRank0StartMomHist.pdf");
 c1->Clear();
-eMinusAllTriggerableEndMomHist->SetTitle("Triggerable 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
-eMinusAllTriggerableEndMomHist->SetLineColor(kBlue);
-eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
-eMinusAllTriggerableEndMomHist->Draw("HIST");
-eMinusRank0TriggerableEndMomHist->Draw("HIST SAME");
-TLegend* legendG = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
-legendG->SetTextSize(0.03);  // smaller, balanced text
-legendG->SetBorderSize(0);   // optional: removes border
-legendG->SetFillStyle(0);    // optional: transparent background
-legendG->AddEntry(eMinusAllTriggerableEndMomHist, "All", "l");
-legendG->AddEntry(eMinusRank0TriggerableEndMomHist, "Rank 0", "l");
-legendG->Draw();
-c1->SaveAs("eMinusTriggerableAllAndRank0EndMomHist.pdf");
-c1->Clear();
-eMinusAllTriggeredEndMomHist->SetTitle("Triggered 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
-eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
-eMinusRank0TriggeredEndMomHist->SetLineColor(kRed);
-eMinusAllTriggeredEndMomHist->Draw("HIST");
-eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
-TLegend* legendH = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
-legendH->SetTextSize(0.03);  // smaller, balanced text
-legendH->SetBorderSize(0);   // optional: removes border
-legendH->SetFillStyle(0);    // optional: transparent background
-legendH->AddEntry(eMinusAllTriggeredEndMomHist, "All", "l");
-legendH->AddEntry(eMinusRank0TriggeredEndMomHist, "Rank 0", "l");
-legendH->Draw();
-c1->SaveAs("eMinusTriggeredAllAndRank0EndMomHist.pdf");
-c1->Clear();
+//eMinusAllTriggerableEndMomHist->SetTitle("Triggerable 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
+//eMinusAllTriggerableEndMomHist->SetLineColor(kBlue);
+//eMinusRank0TriggerableEndMomHist->SetLineColor(kRed);
+//eMinusAllTriggerableEndMomHist->Draw("HIST");
+//eMinusRank0TriggerableEndMomHist->Draw("HIST SAME");
+//TLegend* legendG = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
+//legendG->SetTextSize(0.03);  // smaller, balanced text
+//legendG->SetBorderSize(0);   // optional: removes border
+//legendG->SetFillStyle(0);    // optional: transparent background
+//legendG->AddEntry(eMinusAllTriggerableEndMomHist, "All", "l");
+//legendG->AddEntry(eMinusRank0TriggerableEndMomHist, "Rank 0", "l");
+//legendG->Draw();
+//c1->SaveAs("eMinusTriggerableAllAndRank0EndMomHist.pdf");
+//c1->Clear();
+//eMinusAllTriggeredEndMomHist->SetTitle("Triggered 'all' and 'rank 0' eMinus End Momentum Comparison (MeV/c)");
+//eMinusAllTriggeredEndMomHist->SetLineColor(kBlue);
+//eMinusRank0TriggeredEndMomHist->SetLineColor(kRed);
+//eMinusAllTriggeredEndMomHist->Draw("HIST");
+//eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
+//TLegend* legendH = new TLegend(0.6, 0.7, 0.88, 0.88); // shifted left
+//legendH->SetTextSize(0.03);  // smaller, balanced text
+//legendH->SetBorderSize(0);   // optional: removes border
+//legendH->SetFillStyle(0);    // optional: transparent background
+//legendH->AddEntry(eMinusAllTriggeredEndMomHist, "All", "l");
+//legendH->AddEntry(eMinusRank0TriggeredEndMomHist, "Rank 0", "l");
+//legendH->Draw();
+//c1->SaveAs("eMinusTriggeredAllAndRank0EndMomHist.pdf");
+//c1->Clear();
 
 cout << "Creating and saving the combined histogram for triggered and triggerable for all eMinus in a track and specifically rank 0 eMinus." << endl;
 eMinusAllTriggeredStartMomHist->SetTitle("Triggerable and Triggered eMinus Signals for Start Momentum for 'all' and 'rank 0' electrons (MeV/c).");
@@ -345,24 +345,24 @@ legendI->AddEntry(eMinusRank0TriggeredStartMomHist,"Triggered Rank 0","l");
 legendI->Draw();
 c1->SaveAs("eMinusFullParameterStartMomHist.pdf");
 c1->Clear();
-eMinusAllTriggeredEndMomHist->SetTitle("Triggerable and Triggered eMinus Signals for End Momentum for 'all' and 'rank 0' electrons (MeV/c).");
-eMinusAllTriggerableEndMomHist->SetLineColor(kBlue);
-eMinusAllTriggeredEndMomHist->SetLineColor(kRed);
-eMinusRank0TriggerableEndMomHist->SetLineColor(kBlack);
-eMinusRank0TriggeredEndMomHist->SetLineColor(kGreen);
-eMinusAllTriggerableEndMomHist->Draw("HIST");
-eMinusAllTriggeredEndMomHist->Draw("HIST SAME");
-eMinusRank0TriggerableEndMomHist->Draw("HIST SAME");
-eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
-TLegend* legendJ = new TLegend(0.6, 0.7, 0.88, 0.88);
-legendJ->SetTextSize(0.03);
-legendJ->SetBorderSize(0);
-legendJ->SetFillStyle(0);
-legendJ->AddEntry(eMinusAllTriggerableEndMomHist,"Triggerable All","l");
-legendJ->AddEntry(eMinusAllTriggeredEndMomHist,"Triggered All","l");
-legendJ->AddEntry(eMinusRank0TriggerableEndMomHist,"Triggerable Rank 0","l");
-legendJ->AddEntry(eMinusRank0TriggeredEndMomHist,"Triggered Rank 0","l");
-legendJ->Draw();
-c1->SaveAs("eMinusFullParameterEndMomHist.pdf");
+//eMinusAllTriggeredEndMomHist->SetTitle("Triggerable and Triggered eMinus Signals for End Momentum for 'all' and 'rank 0' electrons (MeV/c).");
+//eMinusAllTriggerableEndMomHist->SetLineColor(kBlue);
+//eMinusAllTriggeredEndMomHist->SetLineColor(kRed);
+//eMinusRank0TriggerableEndMomHist->SetLineColor(kBlack);
+//eMinusRank0TriggeredEndMomHist->SetLineColor(kGreen);
+//eMinusAllTriggerableEndMomHist->Draw("HIST");
+//eMinusAllTriggeredEndMomHist->Draw("HIST SAME");
+//eMinusRank0TriggerableEndMomHist->Draw("HIST SAME");
+//eMinusRank0TriggeredEndMomHist->Draw("HIST SAME");
+//TLegend* legendJ = new TLegend(0.6, 0.7, 0.88, 0.88);
+//legendJ->SetTextSize(0.03);
+//legendJ->SetBorderSize(0);
+//legendJ->SetFillStyle(0);
+//legendJ->AddEntry(eMinusAllTriggerableEndMomHist,"Triggerable All","l");
+//legendJ->AddEntry(eMinusAllTriggeredEndMomHist,"Triggered All","l");
+//legendJ->AddEntry(eMinusRank0TriggerableEndMomHist,"Triggerable Rank 0","l");
+//legendJ->AddEntry(eMinusRank0TriggeredEndMomHist,"Triggered Rank 0","l");
+//legendJ->Draw();
+//c1->SaveAs("eMinusFullParameterEndMomHist.pdf");
 c1->Clear();
 }
