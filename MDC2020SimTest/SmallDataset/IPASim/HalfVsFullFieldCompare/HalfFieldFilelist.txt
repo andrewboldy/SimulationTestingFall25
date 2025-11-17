@@ -1,0 +1,1 @@
+/exp/mu2e/app/users/aboldy/AnaDir/SimulationTestingFall25/MDC2020SimTest/SmallDataset/IPASim/HalfVsFullFieldCompare/HalfField/nts.owner.FlateMinusIPAHalfFieldOnSpillTriggerable.version.sequencer.root
